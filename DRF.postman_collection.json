@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "ef32f4eb-c027-46f4-959c-d2a9b3d2d6ce",
+		"name": "DRF",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16419881"
+	},
+	"item": [
+		{
+			"name": "List all categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/category/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"category",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "My new category",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is the best category in the world!",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/category/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"category",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

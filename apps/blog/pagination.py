@@ -8,7 +8,6 @@ class SmallSetPagination(PageNumberPagination):
     max_page_size = 6
 
 
-
 class MediumSetPagination(PageNumberPagination):
     page_query_param = 'p'
     page_size = 9

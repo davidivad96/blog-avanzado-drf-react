@@ -31,7 +31,7 @@ class BlogListView(APIView):
 class BlogListCategoryView(APIView):
     def get(self, request, category_id, format=None):
         if Post.postobjects.all().exists():
-            
+
             category = Category.objects.get(id=category_id)
             posts = Post.postobjects.all().filter(category=category)
 
@@ -45,15 +45,15 @@ class BlogListCategoryView(APIView):
 
 
 class PostDetailView(APIView):
-    def get(self, request, post_slug,format=None):
+    def get(self, request, post_slug, format=None):
         post = get_object_or_404(Post, slug=post_slug)
         serializer = PostSerializer(post)
-        return Response({'post':serializer.data}, status=status.HTTP_200_OK)
+        return Response({'post': serializer.data}, status=status.HTTP_200_OK)
 
 
 class SearchBlogView(APIView):
 
-    def get(self,request,search_term):
+    def get(self, request, search_term):
         matches = Post.postobjects.filter(
             Q(title__icontains=search_term) |
             Q(description__icontains=search_term) |
@@ -63,4 +63,4 @@ class SearchBlogView(APIView):
         paginator = MediumSetPagination()
         # results = paginator.paginate_queryset(matches, request)
         serializer = PostSerializer(matches, many=True)
-        return Response({'filtered_posts':serializer.data},status=status.HTTP_200_OK)
+        return Response({'filtered_posts': serializer.data}, status=status.HTTP_200_OK)

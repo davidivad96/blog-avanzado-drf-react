@@ -15,10 +15,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255, unique=True)),
                 ('thumbnail', models.ImageField(upload_to='media/categories/')),
-                ('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='children', to='category.category')),
+                ('parent', models.ForeignKey(blank=True, null=True,
+                 on_delete=django.db.models.deletion.CASCADE, related_name='children', to='category.category')),
             ],
             options={
                 'verbose_name': 'Category',
